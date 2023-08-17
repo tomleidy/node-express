@@ -20,27 +20,23 @@ campsiteRouter.route('/')
     .delete((req, res) => {
         res.end('Deleting all campsites');
     })
-module.exports = campsiteRouter;
 
-
-
-/*
-
-.get('/campsites/:campsiteId', (req, res) => {
-    res.end(`Will send details of the campsite: ${req.params.campsiteId} to you`);
-})
-.post('/campsites/:campsiteId', (req, res) => {
-    res.statusCode = 403;
-    res.end(`POST operation not supported on /campsites/${req.params.campsiteId}`);
-})
-.put('/campsites/:campsiteId', (req, res) => {
-    res.write(`Updating the campsite: ${req.params.campsiteId}\n`);
-    res.end(`Will update the campsite: ${req.params.campsiteId}
+campsiteRouter.route('/:campsiteId')
+    .get((req, res) => {
+        res.end(`Will send details of the campsite: ${req.params.campsiteId} to you`);
+    })
+    .post((req, res) => {
+        res.statusCode = 403;
+        res.end(`POST operation not supported on /campsites/${req.params.campsiteId}`);
+    })
+    .put((req, res) => {
+        res.write(`Updating the campsite: ${req.params.campsiteId}\n`);
+        res.end(`Will update the campsite: ${req.params.campsiteId}
     with description: ${req.body.description}`);
-})
+    })
 
-.delete('/campsites/:campsiteId', (req, res) => {
-    res.end(`Deleting campsite: ${req.params.campsiteId}`);
-})
+    .delete((req, res) => {
+        res.end(`Deleting campsite: ${req.params.campsiteId}`);
+    })
 
-*/
+module.exports = campsiteRouter;
